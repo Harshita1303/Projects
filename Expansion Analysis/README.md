@@ -12,13 +12,31 @@ The data for this project is sourced from the Kaggle dataset:
 ![image](https://github.com/user-attachments/assets/8fb7752e-e087-4461-a3e1-7689d97b1a7e)
 
 ## Approach
-- **Define the Objective:** Understanding the objective of the project.
-- **Understand the Schema:** Understanding the blueprint or structure of the database.
-- **Data Collection:** Collecting the datasets from kaggle.
-- **Insert Test Data:** Used CSV imports for bulk data entry.
-- **Develop Query:** Used joins, aggregates, window functions , cte, etc to develop queries.
-- **Data analysis:** Performed different stategies to analze the data
-- **Documentation:** documenting the results and insights .
+### 1. Define the Objective
+- Clearly identify the primary purpose of the project and its expected outcomes.
+- Understand the specific goals the database is designed to achieve, such as data storage, analysis, or optimization of business processes.
+### 2. Understand the Schema
+- Analyze the structure and relationships of the database.
+- Develop a blueprint, including entities, attributes, and relationships, ensuring that the schema aligns with project objectives and adheres to normalization principles.
+### 3. Data Collection
+- Gather relevant datasets to populate the database, using trusted sources such as Kaggle for diverse and high-quality datasets.
+- Ensure the datasets are cleaned and preprocessed for seamless integration into the database.
+### 4. Insert Test Data
+- Import bulk data into the database using CSV files to expedite data entry and ensure efficiency.
+- Validate the data to maintain accuracy and consistency with the database schema.
+### 5. Develop Queries
+- Create advanced SQL queries to extract, analyze, and manipulate data effectively.
+- Utilize techniques such as:
+- Joins: Combine data from multiple tables.
+- Aggregates: Calculate summaries using functions like SUM(), AVG(), COUNT(), etc.
+- Window Functions: Perform advanced computations across partitions of data.
+- Common Table Expressions (CTEs): Simplify complex queries for readability and reusability.
+### 6. Data Analysis
+- Implement various strategies to analyze the data and derive actionable insights.
+- Use descriptive and inferential techniques to identify trends, patterns, and correlations within the dataset.
+### 7. Documentation
+- horoughly document the database design, query development process, and analytical insights.
+- Present findings and observations in a clear and professional manner, ensuring they are accessible to both technical and non-technical stakeholders.
 
 ## Techstack Used 
 - **SQL(Structured Query Language):** Used to query and analyze the data effectively.
