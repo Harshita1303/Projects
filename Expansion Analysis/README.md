@@ -12,31 +12,29 @@ The data for this project is sourced from the Kaggle dataset:
 ![image](https://github.com/user-attachments/assets/8fb7752e-e087-4461-a3e1-7689d97b1a7e)
 
 ## Approach
-### 1. Define the Objective
-- Clearly identify the primary purpose of the project and its expected outcomes.
-- Understand the specific goals the database is designed to achieve, such as data storage, analysis, or optimization of business processes.
-### 2. Understand the Schema
+
+### 1.Understand the Schema
 - Analyze the structure and relationships of the database.
-- Develop a blueprint, including entities, attributes, and relationships, ensuring that the schema aligns with project objectives and adheres to normalization principles.
-### 3. Data Collection
+
+### 2. Data Collection
 - Gather relevant datasets to populate the database, using trusted sources such as Kaggle for diverse and high-quality datasets.
-- Ensure the datasets are cleaned and preprocessed for seamless integration into the database.
-### 4. Insert Test Data
+
+### 3. Insert Test Data
 - Import bulk data into the database using CSV files to expedite data entry and ensure efficiency.
-- Validate the data to maintain accuracy and consistency with the database schema.
-### 5. Develop Queries
+- 
+### 4. Develop Queries
 - Create advanced SQL queries to extract, analyze, and manipulate data effectively.
 - Utilize techniques such as:
 - Joins: Combine data from multiple tables.
 - Aggregates: Calculate summaries using functions like SUM(), AVG(), COUNT(), etc.
 - Window Functions: Perform advanced computations across partitions of data.
 - Common Table Expressions (CTEs): Simplify complex queries for readability and reusability.
-### 6. Data Analysis
+  
+### 5. Insights & Results
 - Implement various strategies to analyze the data and derive actionable insights.
-- Use descriptive and inferential techniques to identify trends, patterns, and correlations within the dataset.
+- 
 ### 7. Documentation
-- horoughly document the database design, query development process, and analytical insights.
-- Present findings and observations in a clear and professional manner, ensuring they are accessible to both technical and non-technical stakeholders.
+- Thoroughly document the database design, query development process, and analytical insights.
 
 ## Techstack Used 
 - **SQL(Structured Query Language):** Used to query and analyze the data effectively.
@@ -104,10 +102,4 @@ GROUP BY 1;
     Identify top 3 city based on highest sales, return city name, total sale, total rent, total customers, estimated  coffee consumer
 
 ## Future Enhancements
-
-Possible extensions to this project:
 - Integration with a dashboard tool (e.g., Power BI or Tableau) for interactive visualization.
-- Additional data sources to enhance analysis depth.
-- Automation of the data pipeline for real-time data ingestion and analysis.
-
-- 
