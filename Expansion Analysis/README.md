@@ -1,4 +1,7 @@
 # Monday Coffee Expansion Analysis
+![Uploading image.png…]()
+
+## Overview
 
 ## Objective
 
