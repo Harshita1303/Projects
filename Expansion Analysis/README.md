@@ -8,7 +8,9 @@ The goal of this project is to analyze the sales data of Monday Coffee, a compan
 
 The data for this project is sourced from the Kaggle dataset:
 - **Dataset Link:** [Movies Dataset](https://www.kaggle.com/datasets/najir0123/monday-coffee-sql-data-analysis-project/)
-- 
+## Schema
+![image](https://github.com/user-attachments/assets/8fb7752e-e087-4461-a3e1-7689d97b1a7e)
+
 ## Approach
 
 ## Techstack Used 
