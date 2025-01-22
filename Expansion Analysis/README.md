@@ -12,12 +12,36 @@ The data for this project is sourced from the Kaggle dataset:
 ![image](https://github.com/user-attachments/assets/8fb7752e-e087-4461-a3e1-7689d97b1a7e)
 
 ## Approach
+- **Define the Objective:** Understanding the objective of the project.
+- **Understand the Schema:** Understanding the blueprint or structure of the database.
+- **Data Collection:** Collecting the datasets from kaggle.
+- **Insert Test Data:** Used CSV imports for bulk data entry.
+- **Develop Query:** Used joins, aggregates, window functions , cte, etc to develop queries.
+- **Data analysis:** Performed different stategies to analze the data
+- **Documentation:** documenting the results and insights .
 
 ## Techstack Used 
 - **SQL(Structured Query Language):** Used to query and analyze the data effectively.
 - **MySQL Workbench:** Used to run SQL queries and perform data operations. 
 
 ## Insights
+After analyzing the data, the recommended top three cities for new store openings are:
+
+**City 1: Pune**  
+1. Average rent per customer is very low.  
+2. Highest total revenue.  
+3. Average sales per customer is also high.
+
+**City 2: Delhi**  
+1. Highest estimated coffee consumers at 7.7 million.  
+2. Highest total number of customers, which is 68.  
+3. Average rent per customer is 330 (still under 500).
+
+**City 3: Jaipur**  
+1. Highest number of customers, which is 69.  
+2. Average rent per customer is very low at 156.  
+3. Average sales per customer is better at 11.6k.
+
 
 ## Results
 
@@ -60,3 +84,12 @@ GROUP BY 1;
 
 11. **Market Potential Analysis**  
     Identify top 3 city based on highest sales, return city name, total sale, total rent, total customers, estimated  coffee consumer
+
+## Future Enhancements
+
+Possible extensions to this project:
+- Integration with a dashboard tool (e.g., Power BI or Tableau) for interactive visualization.
+- Additional data sources to enhance analysis depth.
+- Automation of the data pipeline for real-time data ingestion and analysis.
+
+- 
