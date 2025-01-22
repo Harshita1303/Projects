@@ -15,24 +15,19 @@ The data for this project is sourced from the Kaggle dataset:
 
 ### 1.Understand the Schema
 - Analyze the structure and relationships of the database.
-
 ### 2. Data Collection
 - Gather relevant datasets to populate the database, using trusted sources such as Kaggle for diverse and high-quality datasets.
-
 ### 3. Insert Test Data
-- Import bulk data into the database using CSV files to expedite data entry and ensure efficiency.
-- 
+- Import bulk data into the database using CSV files to expedite data entry and ensure efficiency. 
 ### 4. Develop Queries
 - Create advanced SQL queries to extract, analyze, and manipulate data effectively.
 - Utilize techniques such as:
-- Joins: Combine data from multiple tables.
-- Aggregates: Calculate summaries using functions like SUM(), AVG(), COUNT(), etc.
-- Window Functions: Perform advanced computations across partitions of data.
-- Common Table Expressions (CTEs): Simplify complex queries for readability and reusability.
-  
+-- Joins: Combine data from multiple tables.
+-- Aggregates: Calculate summaries using functions like SUM(), AVG(), COUNT(), etc.
+-- Window Functions: Perform advanced computations across partitions of data.
+-- Common Table Expressions (CTEs): Simplify complex queries for readability and reusability.
 ### 5. Insights & Results
 - Implement various strategies to analyze the data and derive actionable insights.
-- 
 ### 7. Documentation
 - Thoroughly document the database design, query development process, and analytical insights.
 
