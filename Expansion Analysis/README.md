@@ -5,30 +5,21 @@
 The goal of this project is to analyze the sales data of Monday Coffee, a company that has been selling its products online since January 2023, and to recommend the top three major cities in India for opening new coffee shop locations based on consumer demand and sales performance.
 
 ## Dataset
-
 The data for this project is sourced from the Kaggle dataset:
 - **Dataset Link:** [Monday Coffee Dataset](https://www.kaggle.com/datasets/najir0123/monday-coffee-sql-data-analysis-project/)
+
 ## Schema
 ![image](https://github.com/user-attachments/assets/8fb7752e-e087-4461-a3e1-7689d97b1a7e)
 
 ## Approach
 
 ## Techstack Used 
-
-## Key Questions
-
-1. **Coffee Consumers Count**  
-2. **Total Revenue from Coffee Sales**  
-3. **Sales Count for Each Product**  
-4. **Average Sales Amount per City**  
-5. **City Population and Coffee Consumers**  
-6. **Top Selling Products by City**  
-7. **Customer Segmentation by City**  
-8. **Average Sale vs Rent**  
-9. **Monthly Sales Growth**  
-10. **Market Potential Analysis**  
+- **SQL(Structured Query Language):** Used to query and analyze the data effectively.
+- **MySQL Workbench:** Used to run SQL queries and perform data operations. 
 
 ## Insights
+
+## Results
 
 1. **Coffee Consumers Count**  
    How many people in each city are estimated to consume coffee, given that 25% of the population does?
@@ -41,7 +32,7 @@ FROM netflix
 GROUP BY 1;
 ```
 
-**Objective:** Determine the distribution of content types on Netflix.
+- **Objective:** Determine the distribution of content types on Netflix.
 
 3. **Total Revenue from Coffee Sales**  
    What is the total revenue generated from coffee sales across all cities in the last quarter of 2023?
@@ -69,5 +60,3 @@ GROUP BY 1;
 
 11. **Market Potential Analysis**  
     Identify top 3 city based on highest sales, return city name, total sale, total rent, total customers, estimated  coffee consumer
-
-## Results
