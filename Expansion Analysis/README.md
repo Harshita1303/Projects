@@ -30,13 +30,15 @@ The data for this project is sourced from the Kaggle dataset:
 
 1. **Coffee Consumers Count**  
    How many people in each city are estimated to consume coffee, given that 25% of the population does?
-   ```sql
+
+    ```sql
 SELECT 
     type,
     COUNT(*)
 FROM netflix
 GROUP BY 1;
 ```
+
 **Objective:** Determine the distribution of content types on Netflix.
 
 3. **Total Revenue from Coffee Sales**  
