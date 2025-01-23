@@ -17,7 +17,6 @@ The data for this project is sourced from the Kaggle dataset:
 - Import bulk data into the database using CSV files to expedite data entry and ensure efficiency. 
 - Create advanced SQL queries to extract, analyze, and manipulate data effectively.
 - Utilize techniques such as joins, aggregates, window functions and common table expressions(CTE), etc.
-- 
 ### 5. Insights & Results
 - Implement various strategies to analyze the data and derive actionable insights.
 
