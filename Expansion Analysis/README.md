@@ -61,40 +61,137 @@ After analyzing the data, the recommended top three cities for new store opening
 
 ```sql
 SELECT 
-    type,
-    COUNT(*)
-FROM netflix
-GROUP BY 1;
+    city_name AS City,
+    population * 0.25 AS Coffee_Consumers
+FROM
+    city
+ORDER BY Coffee_Consumers DESC;
+```
+2. **Total Revenue from Coffee Sales**  
+   What is the total revenue generated from coffee sales across all cities in the last quarter of 2023?
+```sql
+SELECT 
+    ct.city_name AS City,
+    SUM(s.total) AS Total_Revenue
+FROM
+    sales s
+        INNER JOIN
+    customers c ON s.customer_id = c.customer_id
+        INNER JOIN
+    city ct ON c.city_id = ct.city_id
+WHERE
+    s.sale_date BETWEEN '2023-09-01' AND '2023-12-31'
+GROUP BY ct.city_name
+ORDER BY Total_Revenue DESC;
+```
+3. **Sales Count for Each Product**  
+   How many units of each coffee product have been sold?
+```sql
+SELECT 
+    p.product_name AS Product_Name,
+    COUNT(s.product_id) AS Unit_Sales
+FROM
+    sales s
+        LEFT JOIN
+    products p ON s.product_id = p.product_id
+GROUP BY p.product_name
+ORDER BY Unit_Sales DESC;
 ```
 
-- **Objective:** Determine the distribution of content types on Netflix.
-
-3. **Total Revenue from Coffee Sales**  
-   What is the total revenue generated from coffee sales across all cities in the last quarter of 2023?
-
-4. **Sales Count for Each Product**  
-   How many units of each coffee product have been sold?
-
-5. **Average Sales Amount per City**  
+4. **Average Sales Amount per City**  
    What is the average sales amount per customer in each city?
+```sql
+SELECT 
+    ct.city_name AS City, 
+    round(sum(s.total), 2) AS Total_Revenue,
+    count(distinct c.customer_id) AS Customers_Count,
+    round(sum(s.total)/ count(DISTINCT c.customer_id), 2) AS Average_Sales_Per_Customers
+FROM 
+   	sales s
+        INNER JOIN
+    customers c ON s.customer_id = c.customer_id
+        INNER JOIN
+    city ct ON c.city_id = ct.city_id
+GROUP BY ct.city_name   
+ORDER BY Average_Sales_Per_Customers DESC;
+```
 
-6. **City Population and Coffee Consumers**  
+5. **City Population and Coffee Consumers**  
    Provide a list of cities along with their populations and estimated coffee consumers.
+```sql
+SELECT 
+    ct.city_name AS City,
+    COUNT(DISTINCT c.customer_id) AS Coffee_Consumers,
+    ROUND(AVG(ct.population*0.25) / 1000000, 2) AS Population_In_Millions
+FROM
+    sales s
+        INNER JOIN
+    customers c ON s.customer_id = c.customer_id
+        INNER JOIN
+    city ct ON c.city_id = ct.city_id
+GROUP BY ct.city_name
+ORDER BY Coffee_Consumers DESC;
+```
 
-7. **Top Selling Products by City**  
+
+6. **Top Selling Products by City**  
    What are the top 3 selling products in each city based on sales volume?
 
-8. **Customer Segmentation by City**  
+```sql
+With temp as (
+SELECT 
+    ct.city_name as City,
+    p.product_name as Product,
+    COUNT(s.product_id) as Sales_Volume,
+    DENSE_RANK() OVER(PARTITION BY ct.city_name ORDER BY count(s.product_id) desc) as Ranks
+FROM
+    sales s
+        JOIN
+    customers c ON s.customer_id = c.customer_id
+        JOIN
+    city ct ON c.city_id = ct.city_id
+        JOIN
+    products p ON s.product_id = p.product_id
+GROUP BY ct.city_name, p.product_name
+ORDER BY ct.city_name, Sales_Volume desc
+    )
+select * from temp 
+where temp.Ranks in (1,2,3);
+```
+
+7. **Customer Segmentation by City**  
    How many unique customers are there in each city who have purchased coffee products?
+```sql
+SELECT 
+    ct.city_name AS City,
+    COUNT(distinct s.customer_id) AS Customers_Count
+FROM
+    sales s
+        LEFT JOIN
+    customers c ON s.customer_id = c.customer_id
+        INNER JOIN
+    city ct ON c.city_id = ct.city_id
+GROUP BY ct.city_name
+ORDER BY Customers_Count desc;
+    
+```
 
-9. **Average Sale vs Rent**  
+8. **Average Sale vs Rent**  
    Find each city and their average sale per customer and avg rent per customer
+```sql
 
-10. **Monthly Sales Growth**  
+```
+
+9. **Monthly Sales Growth**  
    Sales growth rate: Calculate the percentage growth (or decline) in sales over different time periods (monthly).
+```sql
 
-11. **Market Potential Analysis**  
+```
+10. **Market Potential Analysis**  
     Identify top 3 city based on highest sales, return city name, total sale, total rent, total customers, estimated  coffee consumer
 
+```sql
+
+```
 ## Future Enhancements
 - Integration with a dashboard tool (e.g., Power BI or Tableau) for interactive visualization.
