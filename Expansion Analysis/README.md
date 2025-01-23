@@ -12,49 +12,20 @@ The data for this project is sourced from the Kaggle dataset:
 ![image](https://github.com/user-attachments/assets/8fb7752e-e087-4461-a3e1-7689d97b1a7e)
 
 ## Approach
-
-### 1.Understand the Schema
 - Analyze the structure and relationships of the database.
-### 2. Data Collection
 - Gather relevant datasets to populate the database, using trusted sources such as Kaggle for diverse and high-quality datasets.
-### 3. Insert Test Data
 - Import bulk data into the database using CSV files to expedite data entry and ensure efficiency. 
-### 4. Develop Queries
 - Create advanced SQL queries to extract, analyze, and manipulate data effectively.
-- Utilize techniques such as:
- - Joins: Combine data from multiple tables.
- - Aggregates: Calculate summaries using functions like SUM(), AVG(), COUNT(), etc.
-- Window Functions: Perform advanced computations across partitions of data.
-- Common Table Expressions (CTEs): Simplify complex queries for readability and reusability.
+- Utilize techniques such as joins, aggregates, window functions and common table expressions(CTE), etc.
+- 
 ### 5. Insights & Results
 - Implement various strategies to analyze the data and derive actionable insights.
-### 7. Documentation
-- Thoroughly document the database design, query development process, and analytical insights.
 
 ## Techstack Used 
 - **SQL(Structured Query Language):** Used to query and analyze the data effectively.
 - **MySQL Workbench:** Used to run SQL queries and perform data operations. 
 
-## Insights
-After analyzing the data, the recommended top three cities for new store openings are:
-
-**City 1: Pune**  
-1. Average rent per customer is very low.  
-2. Highest total revenue.  
-3. Average sales per customer is also high.
-
-**City 2: Delhi**  
-1. Highest estimated coffee consumers at 7.7 million.  
-2. Highest total number of customers, which is 68.  
-3. Average rent per customer is 330 (still under 500).
-
-**City 3: Jaipur**  
-1. Highest number of customers, which is 69.  
-2. Average rent per customer is very low at 156.  
-3. Average sales per customer is better at 11.6k.
-
-
-## Results
+## Business Problems and Solutions
 
 1. **Coffee Consumers Count**  
    How many people in each city are estimated to consume coffee, given that 25% of the population does?
@@ -133,30 +104,29 @@ GROUP BY ct.city_name
 ORDER BY Coffee_Consumers DESC;
 ```
 
-
 6. **Top Selling Products by City**  
    What are the top 3 selling products in each city based on sales volume?
 
 ```sql
-With temp as (
+WITH temp AS (
 SELECT 
-    ct.city_name as City,
-    p.product_name as Product,
-    COUNT(s.product_id) as Sales_Volume,
-    DENSE_RANK() OVER(PARTITION BY ct.city_name ORDER BY count(s.product_id) desc) as Ranks
+    ct.city_name AS City,
+    p.product_name AS Product,
+    COUNT(s.product_id) AS Sales_Volume,
+    DENSE_RANK() OVER(PARTITION BY  ct.city_name ORDER BY COUNT(s.product_id) DESC) AS Ranks
 FROM
     sales s
-        JOIN
+        INNER JOIN
     customers c ON s.customer_id = c.customer_id
-        JOIN
+        INNER JOIN
     city ct ON c.city_id = ct.city_id
-        JOIN
+        INNER JOIN
     products p ON s.product_id = p.product_id
 GROUP BY ct.city_name, p.product_name
-ORDER BY ct.city_name, Sales_Volume desc
+ORDER BY ct.city_name, Sales_Volume DESC
     )
-select * from temp 
-where temp.Ranks in (1,2,3);
+SELECT * FROM temp 
+WHERE temp.Ranks IN (1,2,3);
 ```
 
 7. **Customer Segmentation by City**  
@@ -164,7 +134,7 @@ where temp.Ranks in (1,2,3);
 ```sql
 SELECT 
     ct.city_name AS City,
-    COUNT(distinct s.customer_id) AS Customers_Count
+    COUNT(DISTINCT s.customer_id) AS Customers_Count
 FROM
     sales s
         LEFT JOIN
@@ -172,26 +142,143 @@ FROM
         INNER JOIN
     city ct ON c.city_id = ct.city_id
 GROUP BY ct.city_name
-ORDER BY Customers_Count desc;
-    
+ORDER BY Customers_Count DESC;
 ```
 
 8. **Average Sale vs Rent**  
    Find each city and their average sale per customer and avg rent per customer
 ```sql
+WITH city_table AS (
+	SELECT ct.city_name AS City, 
+	ROUND(SUM(s.total), 2) AS Total_Revenue, 
+	COUNT(DISTINCT c.customer_id) AS Customers_Count,
+	ROUND(SUM(s.total)/ COUNT(DISTINCT c.customer_id), 2) AS Average_Sales_Per_Customers
+	FROM sales s
+			INNER JOIN
+		customers c ON s.customer_id = c.customer_id
+			INNER JOIN
+		city ct ON c.city_id = ct.city_id
+	GROUP BY ct.city_name
+	ORDER BY Average_Sales_Per_Customers DESC
+),
+city_rent
+AS 
+(
+	SELECT 
+		city_name,
+		estimated_rent
+	FROM 
+		city
+)
+SELECT 
+	cr.city_name,
+	ctt.Average_Sales_Per_Customers AS Average_Sales_Per_Customers,
+	ROUND(estimated_rent/ctt.Customers_Count, 2) AS Average_Rent_Per_Customers
+FROM 
+	city_table ctt 
+		INNER JOIN 
+	city_rent cr ON cr.city_name = ctt.City;
 
 ```
 
 9. **Monthly Sales Growth**  
    Sales growth rate: Calculate the percentage growth (or decline) in sales over different time periods (monthly).
 ```sql
-
+WITH Monthly_Sales AS (
+	SELECT 
+		ct.city_name AS City,
+		EXTRACT(MONTH FROM s.sale_date) AS Sales_Month,
+		EXTRACT(YEAR FROM s.sale_date) AS Sales_Year, 
+		SUM(s.total) AS Total_Sales
+	FROM
+		sales s
+			INNER JOIN
+		customers c ON s.customer_id = c.customer_id
+			INNER JOIN
+		city ct ON c.city_id = ct.city_id
+    GROUP BY ct.city_name, EXTRACT(month from s.sale_date), EXTRACT(year from s.sale_date)
+    ORDER BY City, Sales_Year, Sales_Month
+), 
+growth_ratio
+AS
+(SELECT 
+	City, 
+	Sales_Month, 
+    Sales_Year, 
+    Total_Sales AS Current_Sales, 
+    LAG(Total_Sales, 1) OVER(PARTITION BY City ORDER BY Sales_Year, Sales_Month) AS Previous_Sales 
+FROM 
+	monthly_sales)
+SELECT City, 
+	Sales_Month, Sales_Year, 
+	Current_Sales, Previous_Sales, 
+	ROUND(((Current_Sales-Previous_Sales)/Previous_Sales)*100, 2) as Growth_Rate
+FROM 
+	growth_ratio
+WHERE 
+	Previous_Sales IS NOT NULL;
 ```
 10. **Market Potential Analysis**  
     Identify top 3 city based on highest sales, return city name, total sale, total rent, total customers, estimated  coffee consumer
 
 ```sql
-
+WITH city_table AS (
+	SELECT ct.city_name AS City, 
+	round(sum(s.total), 2) AS Total_Revenue, 
+	count(DISTINCT c.customer_id) AS Total_Customers,
+	round(sum(s.total)/ count(DISTINCT c.customer_id), 2) AS Average_Sales_Per_Customers
+	FROM sales s
+			INNER JOIN
+		customers c ON s.customer_id = c.customer_id
+			INNER JOIN
+		city ct ON c.city_id = ct.city_id
+	GROUP BY ct.city_name
+	ORDER BY Average_Sales_Per_Customers DESC
+),
+city_rent
+AS 
+(
+	SELECT 
+		city_name,
+		estimated_rent, 
+        round(population/1000000 *0.25, 2) AS Estimated_Coffee_Consumers_In_Millinons
+	FROM 
+		city
+)
+select 
+	cr.city_name AS City,
+	ct.Total_Revenue AS Total_Revenue,
+	cr.estimated_rent AS Total_Rent,
+	ct.Total_Customers AS Total_Customers, 
+	cr.Estimated_Coffee_Consumers_In_Millinons AS Estimated_Coffee_Consumers_In_Millinons,
+	ct.Average_Sales_Per_Customers AS Average_Sales_Per_Customers,
+	round(estimated_rent/ct.Total_Customers, 2) AS Average_Rent_Per_Customers
+FROM
+	city_table ct
+INNER JOIN 
+	city_rent cr
+ON
+	cr.city_name = ct.City
+ORDER BY Total_Revenue DESC;
 ```
+
+## Results & Insights
+After analyzing the data, the recommended top three cities for new store openings are:
+
+**City 1: Pune**  
+- Average rent per customer is very low.  
+- Highest total revenue.  
+- Average sales per customer is also high.
+
+**City 2: Delhi**  
+- Highest estimated coffee consumers at 7.7 million.  
+- Highest total number of customers, which is 68.  
+- Average rent per customer is 330 (still under 500).
+
+**City 3: Jaipur**  
+- Highest number of customers, which is 69.
+- Average rent per customer is very low at 156.  
+- Average sales per customer is better at 11.6k.
+
 ## Future Enhancements
 - Integration with a dashboard tool (e.g., Power BI or Tableau) for interactive visualization.
