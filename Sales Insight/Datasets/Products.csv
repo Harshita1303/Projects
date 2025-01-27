@@ -1,0 +1,157 @@
+Product ID,Product,Category,Brand,Cost Price,Selling Price
+PROD-001,Milk,Dairy,Amul,37.5,45.75
+PROD-002,Bread,Bakery,Britannia,22.5,25.2
+PROD-003,Rice,Staples,Kohinoor,60,68.4
+PROD-004,Sugar,Staples,Tata,30,34.2
+PROD-005,Apple,Fruits,Washington,7.5,9.6
+PROD-006,Tomato,Vegetables,Local Farm,3.75,4.6125
+PROD-007,Chicken,Meat,Tyson,112.5,139.5
+PROD-008,Eggs,Dairy,Brown Gold,45,50.4
+PROD-009,Toothpaste,Personal Care,Colgate,15,16.8
+PROD-010,Shampoo,Personal Care,Pantene,75,93
+PROD-011,Soap,Personal Care,Dove,22.5,27.675
+PROD-012,Potato Chips,Snacks,Lay's,15,18.15
+PROD-013,Orange Juice,Beverages,Tropicana,52.5,59.325
+PROD-014,Yogurt,Dairy,Danone,30,37.5
+PROD-015,Cheese,Dairy,Kraft,60,74.4
+PROD-016,Chocolate Bar,Snacks,Hershey's,18.75,22.125
+PROD-017,Toothbrush,Personal Care,Oral-B,11.25,12.375
+PROD-018,Cereal,Breakfast,Kellogg's,45,54
+PROD-019,Cooking Oil,Cooking,Fortune,90,110.7
+PROD-020,Dish Soap,Household,Vim,7.5,8.775
+PROD-021,Ice Cream,Dessert,Baskin-Robbins,75,86.25
+PROD-022,Biscuits,Snacks,Parle,11.25,14.5125
+PROD-023,Bananas,Fruits,Chiquita,15,16.95
+PROD-024,Pasta,Staples,Barilla,30,36.6
+PROD-025,Hand Sanitizer,Personal Care,Dettol,37.5,48
+PROD-026,Tissue Paper,Household,Kleenex,7.5,9.075
+PROD-027,Yoghurt Drink,Beverages,Yakult,22.5,27.225
+PROD-028,Orange,Fruits,Sunkist,11.25,14.2875
+PROD-029,Peanut Butter,Spreads,Skippy,52.5,58.8
+PROD-030,Coffee,Beverages,Starbucks,112.5,140.625
+PROD-031,Tea Bags,Beverages,Lipton,30,33
+PROD-032,Potato,Vegetables,Russet,3.75,4.2375
+PROD-033,Onion,Vegetables,Sweet,7.5,9.75
+PROD-034,Carrots,Vegetables,Baby,11.25,14.175
+PROD-035,Lemon,Fruits,Fresh,3.75,4.275
+PROD-036,Milk Chocolate,Snacks,Cadbury,15,16.65
+PROD-037,Laundry Detergent,Household,Tide,22.5,28.8
+PROD-038,Ketchup,Condiments,Heinz,18.75,22.125
+PROD-039,Cucumber,Vegetables,English,7.5,9.75
+PROD-040,Mayonnaise,Condiments,Hellmann's,26.25,34.125
+PROD-041,Salt,Condiments,Tata,3.75,4.2
+PROD-042,Pepper,Condiments,McCormick,7.5,9.375
+PROD-043,Watermelon,Fruits,Whole,22.5,27.675
+PROD-044,Yogurt Parfait,Dessert,Yoplait,30,33.6
+PROD-045,Baby Food,Baby Care,Gerber,37.5,42.375
+PROD-046,Green Beans,Vegetables,Fresh,7.5,8.925
+PROD-047,Honey,Spreads,Dabur,18.75,20.8125
+PROD-048,Red Wine,Beverages,Yellow,150,168
+PROD-049,White Bread,Bakery,Wonder,18.75,21.375
+PROD-050,Facial Tissues,Household,Kleenex,11.25,12.375
+PROD-051,Chips,Snacks,Pringles,15,19.2
+PROD-052,Canned Soup,Canned Goods,Campbell's,22.5,26.325
+PROD-053,Orange Soda,Beverages,Fanta,11.25,12.6
+PROD-054,Butter,Dairy,Land O'Lakes,37.5,48
+PROD-055,Bagels,Bakery,Thomas',15,17.4
+PROD-056,Quinoa,Staples,Ancient Harvest,52.5,61.425
+PROD-057,Honeydew Melon,Fruits,Del Monte,18.75,22.125
+PROD-058,Avocado,Fruits,Hass,22.5,26.1
+PROD-059,Ground Beef,Meat,Angus Beef,90,116.1
+PROD-060,Salmon Fillet,Seafood,Wild-Caught,135,167.4
+PROD-061,Greek Yogurt,Dairy,FAGE,30,36.6
+PROD-062,Facial Cleanser,Personal Care,Neutrogena,18.75,22.3125
+PROD-063,Conditioner,Personal Care,Herbal Essences,30,34.5
+PROD-064,Hand Soap,Personal Care,Softsoap,7.5,9.375
+PROD-065,Popcorn,Snacks,Orville Redenbacher's,15,19.05
+PROD-066,Lemonade,Beverages,Minute Maid,22.5,26.55
+PROD-067,Cottage Cheese,Dairy,Breakstone's,26.25,33.6
+PROD-068,Mozzarella Cheese,Dairy,Galbani,37.5,48.375
+PROD-069,Almonds,Nuts,Blue Diamond,75,88.5
+PROD-070,Mouthwash,Personal Care,Listerine,18.75,23.4375
+PROD-071,Pancake Mix,Breakfast,Aunt Jemima,30,36
+PROD-072,Vinegar,Cooking,Bragg,11.25,12.825
+PROD-073,All-Purpose Cleaner,Household,Lysol,15,17.85
+PROD-074,Sorbet,Dessert,Talenti,22.5,26.55
+PROD-075,Pretzels,Snacks,Snyder's,11.25,14.0625
+PROD-076,Pineapple,Fruits,Dole,18.75,23.625
+PROD-077,Instant Noodles,Snacks,Maggi,7.5,8.7
+PROD-078,Sunflower Oil,Cooking,Borges,52.5,59.85
+PROD-079,Trash Bags,Household,Glad,15,16.8
+PROD-080,Iced Tea,Beverages,Arizona,30,39
+PROD-081,Mango,Fruits,Alphonso,22.5,28.575
+PROD-082,Nutella,Spreads,Ferrero,45,50.4
+PROD-083,Green Tea,Beverages,Bigelow,15,17.85
+PROD-084,Spinach,Vegetables,Baby,7.5,9.675
+PROD-085,Bell Pepper,Vegetables,Red,11.25,12.375
+PROD-086,Cabbage,Vegetables,Green,7.5,9.675
+PROD-087,Lime,Fruits,Persian,3.75,4.35
+PROD-088,Dark Chocolate,Snacks,Lindt,22.5,26.55
+PROD-089,Fabric Softener,Household,Downy,11.25,13.5
+PROD-090,Mustard,Condiments,French's,7.5,8.25
+PROD-091,Zucchini,Vegetables,Italian,7.5,8.55
+PROD-092,BBQ Sauce,Condiments,Sweet Baby Ray's,18.75,21.75
+PROD-093,Cinnamon,Spices,McCormick,7.5,8.475
+PROD-094,Nut Mix,Nuts,Planters,30,35.7
+PROD-095,Sparkling Water,Beverages,LaCroix,11.25,13.95
+PROD-096,Cereal Bars,Snacks,Nature Valley,15,17.7
+PROD-097,Canned Corn,Canned Goods,Del Monte,11.25,12.7125
+PROD-098,Lemon Lime Soda,Beverages,Sprite,7.5,8.7
+PROD-099,Olive Oil,Cooking,Bertolli,60,66
+PROD-100,Raspberries,Fruits,Driscoll's,30,37.8
+PROD-101,Baby Wipes,Baby Care,Huggies,22.5,27.45
+PROD-102,Brussels Sprouts,Vegetables,Fresh,15,16.5
+PROD-103,Maple Syrup,Breakfast,Aunt Jemima,18.75,21.5625
+PROD-104,Red Pepper,Spices,McCormick,7.5,9.225
+PROD-105,Pine Nuts,Nuts,Kirkland Signature,45,54.9
+PROD-106,Iced Coffee,Beverages,Dunkin',37.5,46.5
+PROD-107,Baby Wipes,Baby Care,Huggies,56.25,72.5625
+PROD-108,Brussels Sprouts,Vegetables,Fresh,22.5,28.35
+PROD-109,Maple Syrup,Breakfast,Aunt Jemima,112.5,139.5
+PROD-110,Red Pepper,Spices,McCormick,15,19.2
+PROD-111,Pine Nuts,Nuts,Kirkland Signature,135,167.4
+PROD-112,Iced Coffee,Beverages,Dunkin',45,51.75
+PROD-113,Potato,Vegetables,Russet,7.5,8.85
+PROD-114,Onion,Vegetables,Sweet,3.75,4.2
+PROD-115,Carrots,Vegetables,Baby,11.25,12.7125
+PROD-116,Lemon,Fruits,Fresh,6,7.62
+PROD-117,Milk Chocolate,Snacks,Cadbury,18.75,22.125
+PROD-118,Laundry Detergent,Household,Tide,150,168
+PROD-119,Ketchup,Condiments,Heinz,30,37.5
+PROD-120,Cucumber,Vegetables,English,9,11.25
+PROD-121,Mayonnaise,Condiments,Hellmann's,37.5,42.375
+PROD-122,Salt,Condiments,Tata,7.5,8.775
+PROD-123,Pepper,Condiments,McCormick,11.25,13.95
+PROD-124,Watermelon,Fruits,Whole,30,33.6
+PROD-125,Yogurt Parfait,Dessert,Yoplait,22.5,24.75
+PROD-126,Baby Food,Baby Care,Gerber,18.75,22.6875
+PROD-127,Green Beans,Vegetables,Fresh,15,19.05
+PROD-128,Honey,Spreads,Dabur,45,55.35
+PROD-129,Red Wine,Beverages,Yellow,187.5,221.25
+PROD-130,White Bread,Bakery,Wonder,22.5,29.025
+PROD-131,Facial Tissues,Household,Kleenex,30,37.5
+PROD-132,Chips,Snacks,Pringles,15,17.7
+PROD-133,Canned Soup,Canned Goods,Campbell's,33.75,39.4875
+PROD-134,Orange Soda,Beverages,Fanta,26.25,32.8125
+PROD-135,Butter,Dairy,Land O'Lakes,37.5,43.875
+PROD-136,Bagels,Bakery,Thomas',18.75,20.8125
+PROD-137,Quinoa,Staples,Ancient Harvest,60,73.2
+PROD-138,Honeydew Melon,Fruits,Del Monte,30,36.3
+PROD-139,Avocado,Fruits,Hass,18.75,22.3125
+PROD-140,Ground Beef,Meat,Angus Beef,112.5,128.25
+PROD-141,Salmon Fillet,Seafood,Wild-Caught,135,148.5
+PROD-142,Greek Yogurt,Dairy,FAGE,22.5,25.65
+PROD-143,Facial Cleanser,Personal Care,Neutrogena,37.5,45.75
+PROD-144,Conditioner,Personal Care,Herbal Essences,30,38.7
+PROD-145,Hand Soap,Personal Care,Softsoap,11.25,13.6125
+PROD-146,Popcorn,Snacks,Orville Redenbacher's,18.75,22.3125
+PROD-147,Lemonade,Beverages,Minute Maid,15,17.55
+PROD-148,Cottage Cheese,Dairy,Breakstone's,26.25,32.55
+PROD-149,Mozzarella Cheese,Dairy,Galbani,30,35.4
+PROD-150,Almonds,Nuts,Blue Diamond,90,114.3
+PROD-151,Mouthwash,Personal Care,Listerine,52.5,66.675
+PROD-152,Pancake Mix,Breakfast,Aunt Jemima,45,54
+PROD-153,Vinegar,Cooking,Bragg,22.5,24.75
+PROD-154,All-Purpose Cleaner,Household,Lysol,18.75,24.375
+PROD-155,Sorbet,Dessert,Talenti,30,37.8
+PROD-156,Pretzels,Snacks,Snyder's,11.25,12.7125
