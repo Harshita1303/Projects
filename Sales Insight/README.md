@@ -19,27 +19,27 @@ The dashboards collectively aim to provide a comprehensive view of Sidzkart's bu
 5.	**Insights & Recommendations:** Extracted valuable insights to improve business performance and presented recommendations.
 
 ## Tech Stack Used 
--	Power BI: For data visualization and dashboard creation.
--	Power Query: For data transformation and cleaning.
--	DAX (Data Analysis Expressions): Used for calculated fields and measure.
+-	**Power BI:** For data visualization and dashboard creation.
+-	**Power Query:** For data transformation and cleaning.
+-	**DAX (Data Analysis Expressions):** Used for calculated fields and measure.
 
 ## Dashboards Overview
 ### 1. Company Performance Dashboard
--	Key Metrics: Revenue, Profit, Order Quantity, Customers
--	Trends: Yearly revenue and profit growth
--	Orders vs Returns: Product return rates by year
--	Profit Margin Analysis: Yearly profit growth
--	Top Product Categories: Most popular product categories based on order quantity
+-	**Key Metrics:** Revenue, Profit, Order Quantity, Customers
+-	**Trends:** Yearly revenue and profit growth
+-	**Orders vs Returns:** Product return rates by year
+-	**Profit Margin Analysis:** Yearly profit growth
+-	**Top Product Categories:** Most popular product categories based on order quantity
 ### 2. Customer Distribution Dashboard
-- Orders by Age Category: Customer segmentation into young, middle-aged, and senior citizens
-- Revenue by State: Geographical revenue distribution using a map visualization
-- Top 5 Customers by Revenue: High-value customers and their average annual spend
-- State-wise Filter: Enables analysis of revenue by specific locations
+- **Orders by Age Category:** Customer segmentation into young, middle-aged, and senior citizens
+- **Revenue by State:** Geographical revenue distribution using a map visualization
+- **Top 5 Customers by Revenue:** High-value customers and their average annual spend
+- **State-wise Filter:** Enables analysis of revenue by specific locations
 ### 3. Product Performance Dashboard
-- Top Returned Products: Identifies frequently returned products
-- Total Order Quantity by Category: Highlights best-selling product categories
-- Sales Distribution Over Time: Compares total revenue and discounted sales trends
-- Discount Analysis: Tracks applied discounts and their impact on sales
+- **Top Returned Products:** Identifies frequently returned products
+- **Total Order Quantity by Category:** Highlights best-selling product categories
+- **Sales Distribution Over Time:** Compares total revenue and discounted sales trends
+- **Discount Analysis:** Tracks applied discounts and their impact on sales
 
 ## Results & Insights
 1.	**Steady Growth in Revenue & Profit:** The company has shown consistent growth in total revenue and profit from 2019 to 2023.
