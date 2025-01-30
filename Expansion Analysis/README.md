@@ -1,5 +1,7 @@
 #                                   Monday Coffee Expansion Analysis
 ![front](https://github.com/user-attachments/assets/0d821e55-5296-4619-8fc1-d4b3954045df)
+![Screenshot 2025-01-31 031451](https://github.com/user-attachments/assets/d7d7acf1-ab72-4804-b77e-55a72db644a7)
+
 
 ## Project Description
 The goal of this project is to analyze the sales data of Monday Coffee, a company that has been selling its products online since January 2023, and to recommend the top three major cities in India for opening new coffee shop locations based on consumer demand and sales performance.
