@@ -1,9 +1,9 @@
-#Monday Coffee Expansion Analysis
+# Monday Coffee Expansion Analysis
 ![front](https://github.com/user-attachments/assets/0d821e55-5296-4619-8fc1-d4b3954045df)
 ![dashboard](https://github.com/user-attachments/assets/09ee9883-7f12-42ad-b45a-f3ebbf9238e4)
 
-## Project Description
-The goal of this project is to analyze the sales data of Monday Coffee, a company that has been selling its products online since January 2023, and to recommend the top three major cities in India for opening new coffee shop locations based on consumer demand and sales performance.
+## 📌 Project Description
+The goal of this project is to analyze the sales data of Monday Coffee, a company that has been selling its products online since January 2023. The objective is to recommend the top three major cities in India for opening new coffee shop locations based on Consumer demand, Sales performance and Market potential.
 
 ---
 ## 📁 Project Structure
@@ -94,50 +94,27 @@ Total Coffee Consumers = SUM(Sales[Customers])
 - Export and share the **Power BI dashboard (.pbix)** for collaboration.
 
 ---
-## 🚀 Future Enhancements
-- **Customer Segmentation Analysis** based on purchase behavior.
-- **Predictive Analytics** for future sales trends.
-- **Automated Data Refresh** in Power BI.
+## 🛠 **Tech Stack & Tools Used**  
+
+### 📌 **Languages & Libraries**  
+- **Python** (Pandas, PyMySQL, SQLAlchemy)  
+- **SQL** (Structured Query Language)  
+
+### 🏢 **Databases & Tools**  
+- **MySQL** (for data storage and querying)  
+- **MySQL Workbench** (for SQL query execution)  
+- **Kaggle API** (for downloading datasets)  
+- **Power BI** (for data visualization and reporting)  
+
+### 💻 **Development Environment**  
+- **VS Code** (for coding and analysis)  
 
 ---
-### 💪 Contributing
-Feel free to **fork** this repository, **raise issues**, or **submit pull requests** to improve the project!
 
----
-## 🎉 Thank You!
-👉 If you find this project useful, please **⭐ star this repository**!
+## 📌 Business Problems & Solutions  
 
-
-  
-Here’s a well-structured **Requirements** section for your GitHub README:  
-
-## 🔧 Requirements  
-
-To successfully run this project, ensure you have the following installed:  
-
-### 🐍 **Programming & Development Tools**  
-- **Python** (with the following libraries installed)  
-  - `pandas` → For data manipulation  
-  - `pymysql` → For MySQL database connection  
-  - `sqlalchemy` → For managing database interactions  
-- **VS Code** → For writing and running Python scripts  
-
-### 🗄️ **Database & SQL Tools**  
-- **MySQL** → For storing and querying sales data  
-- **MySQL Workbench** → GUI tool to run SQL queries and manage the database  
-
-### 📊 **Data Analytics & Visualization**  
-- **Power BI** → For creating interactive dashboards and visualizations  
-
-### 📦 **Data Access & API**  
-- **Kaggle API** → To fetch the dataset directly from Kaggle  
-  - Requires setting up a Kaggle API key  
-
-This setup ensures a smooth workflow from data extraction to visualization! 🚀 Let me know if you need any refinements.
-## Business Problems and Solutions
-
-1. **Coffee Consumers Count**  
-   How many people in each city are estimated to consume coffee, given that 25% of the population does?
+### 1️⃣ **Coffee Consumers Count**  
+**Problem:** Estimate how many people in each city consume coffee (assuming 25% of the population).  
 
 ```sql
 SELECT 
@@ -147,74 +124,73 @@ FROM
     city
 ORDER BY Coffee_Consumers DESC;
 ```
-2. **Total Revenue from Coffee Sales**  
-   What is the total revenue generated from coffee sales across all cities in the last quarter of 2023?
+
+### 2️⃣ **Total Revenue from Coffee Sales**  
+**Problem:** Calculate total revenue from coffee sales across all cities in Q4 of 2023.  
+
 ```sql
 SELECT 
     ct.city_name AS City,
     SUM(s.total) AS Total_Revenue
 FROM
     sales s
-        INNER JOIN
-    customers c ON s.customer_id = c.customer_id
-        INNER JOIN
-    city ct ON c.city_id = ct.city_id
+        INNER JOIN customers c ON s.customer_id = c.customer_id
+        INNER JOIN city ct ON c.city_id = ct.city_id
 WHERE
     s.sale_date BETWEEN '2023-09-01' AND '2023-12-31'
 GROUP BY ct.city_name
 ORDER BY Total_Revenue DESC;
 ```
-3. **Sales Count for Each Product**  
-   How many units of each coffee product have been sold?
+
+### 3️⃣ **Sales Count for Each Product**  
+**Problem:** Determine the number of units sold for each coffee product.  
+
 ```sql
 SELECT 
     p.product_name AS Product_Name,
     COUNT(s.product_id) AS Unit_Sales
 FROM
     sales s
-        LEFT JOIN
-    products p ON s.product_id = p.product_id
+        LEFT JOIN products p ON s.product_id = p.product_id
 GROUP BY p.product_name
 ORDER BY Unit_Sales DESC;
 ```
 
-4. **Average Sales Amount per City**  
-   What is the average sales amount per customer in each city?
+### 4️⃣ **Average Sales Amount per City**  
+**Problem:** Find the average sales amount per customer in each city.  
+
 ```sql
 SELECT 
     ct.city_name AS City, 
-    round(sum(s.total), 2) AS Total_Revenue,
-    count(distinct c.customer_id) AS Customers_Count,
-    round(sum(s.total)/ count(DISTINCT c.customer_id), 2) AS Average_Sales_Per_Customers
+    ROUND(SUM(s.total), 2) AS Total_Revenue,
+    COUNT(DISTINCT c.customer_id) AS Customers_Count,
+    ROUND(SUM(s.total)/ COUNT(DISTINCT c.customer_id), 2) AS Average_Sales_Per_Customers
 FROM 
-   	sales s
-        INNER JOIN
-    customers c ON s.customer_id = c.customer_id
-        INNER JOIN
-    city ct ON c.city_id = ct.city_id
+    sales s
+        INNER JOIN customers c ON s.customer_id = c.customer_id
+        INNER JOIN city ct ON c.city_id = ct.city_id
 GROUP BY ct.city_name   
 ORDER BY Average_Sales_Per_Customers DESC;
 ```
 
-5. **City Population and Coffee Consumers**  
-   Provide a list of cities along with their populations and estimated coffee consumers.
+### 5️⃣ **City Population and Coffee Consumers**  
+**Problem:** Provide city-wise population and estimated coffee consumers.  
+
 ```sql
 SELECT 
     ct.city_name AS City,
     COUNT(DISTINCT c.customer_id) AS Coffee_Consumers,
-    ROUND(AVG(ct.population*0.25) / 1000000, 2) AS Population_In_Millions
+    ROUND(AVG(ct.population * 0.25) / 1000000, 2) AS Population_In_Millions
 FROM
     sales s
-        INNER JOIN
-    customers c ON s.customer_id = c.customer_id
-        INNER JOIN
-    city ct ON c.city_id = ct.city_id
+        INNER JOIN customers c ON s.customer_id = c.customer_id
+        INNER JOIN city ct ON c.city_id = ct.city_id
 GROUP BY ct.city_name
 ORDER BY Coffee_Consumers DESC;
 ```
 
-6. **Top Selling Products by City**  
-   What are the top 3 selling products in each city based on sales volume?
+### 6️⃣ **Top Selling Products by City**  
+**Problem:** Identify the top 3 best-selling products in each city.  
 
 ```sql
 WITH temp AS (
@@ -222,40 +198,37 @@ SELECT
     ct.city_name AS City,
     p.product_name AS Product,
     COUNT(s.product_id) AS Sales_Volume,
-    DENSE_RANK() OVER(PARTITION BY  ct.city_name ORDER BY COUNT(s.product_id) DESC) AS Ranks
+    DENSE_RANK() OVER(PARTITION BY ct.city_name ORDER BY COUNT(s.product_id) DESC) AS Ranks
 FROM
     sales s
-        INNER JOIN
-    customers c ON s.customer_id = c.customer_id
-        INNER JOIN
-    city ct ON c.city_id = ct.city_id
-        INNER JOIN
-    products p ON s.product_id = p.product_id
+        INNER JOIN customers c ON s.customer_id = c.customer_id
+        INNER JOIN city ct ON c.city_id = ct.city_id
+        INNER JOIN products p ON s.product_id = p.product_id
 GROUP BY ct.city_name, p.product_name
 ORDER BY ct.city_name, Sales_Volume DESC
-    )
+)
 SELECT * FROM temp 
 WHERE temp.Ranks IN (1,2,3);
 ```
 
-7. **Customer Segmentation by City**  
-   How many unique customers are there in each city who have purchased coffee products?
+### 7️⃣ **Customer Segmentation by City**  
+**Problem:** Find the number of unique customers in each city.  
+
 ```sql
 SELECT 
     ct.city_name AS City,
     COUNT(DISTINCT s.customer_id) AS Customers_Count
 FROM
     sales s
-        LEFT JOIN
-    customers c ON s.customer_id = c.customer_id
-        INNER JOIN
-    city ct ON c.city_id = ct.city_id
+        LEFT JOIN customers c ON s.customer_id = c.customer_id
+        INNER JOIN city ct ON c.city_id = ct.city_id
 GROUP BY ct.city_name
 ORDER BY Customers_Count DESC;
 ```
 
-8. **Average Sale vs Rent**  
-   Find each city and their average sale per customer and avg rent per customer
+### 8️⃣ **Average Sale vs Rent**  
+**Problem:** Compare the average sales per customer with average rent per customer.  
+
 ```sql
 WITH city_table AS (
 	SELECT ct.city_name AS City, 
@@ -263,35 +236,25 @@ WITH city_table AS (
 	COUNT(DISTINCT c.customer_id) AS Customers_Count,
 	ROUND(SUM(s.total)/ COUNT(DISTINCT c.customer_id), 2) AS Average_Sales_Per_Customers
 	FROM sales s
-			INNER JOIN
-		customers c ON s.customer_id = c.customer_id
-			INNER JOIN
-		city ct ON c.city_id = ct.city_id
+			INNER JOIN customers c ON s.customer_id = c.customer_id
+			INNER JOIN city ct ON c.city_id = ct.city_id
 	GROUP BY ct.city_name
-	ORDER BY Average_Sales_Per_Customers DESC
 ),
-city_rent
-AS 
-(
-	SELECT 
-		city_name,
-		estimated_rent
-	FROM 
-		city
+city_rent AS (
+	SELECT city_name, estimated_rent FROM city
 )
 SELECT 
 	cr.city_name,
-	ctt.Average_Sales_Per_Customers AS Average_Sales_Per_Customers,
-	ROUND(estimated_rent/ctt.Customers_Count, 2) AS Average_Rent_Per_Customers
+	ct.Average_Sales_Per_Customers,
+	ROUND(estimated_rent/ct.Customers_Count, 2) AS Average_Rent_Per_Customers
 FROM 
-	city_table ctt 
-		INNER JOIN 
-	city_rent cr ON cr.city_name = ctt.City;
-
+	city_table ct 
+	INNER JOIN city_rent cr ON cr.city_name = ct.City;
 ```
 
-9. **Monthly Sales Growth**  
-   Sales growth rate: Calculate the percentage growth (or decline) in sales over different time periods (monthly).
+### 9️⃣ **Monthly Sales Growth**  
+**Problem:** Calculate percentage growth (or decline) in sales over different months.  
+
 ```sql
 WITH Monthly_Sales AS (
 	SELECT 
@@ -301,95 +264,80 @@ WITH Monthly_Sales AS (
 		SUM(s.total) AS Total_Sales
 	FROM
 		sales s
-			INNER JOIN
-		customers c ON s.customer_id = c.customer_id
-			INNER JOIN
-		city ct ON c.city_id = ct.city_id
-    GROUP BY ct.city_name, EXTRACT(month from s.sale_date), EXTRACT(year from s.sale_date)
-    ORDER BY City, Sales_Year, Sales_Month
-), 
-growth_ratio
-AS
-(SELECT 
-	City, 
-	Sales_Month, 
-    Sales_Year, 
-    Total_Sales AS Current_Sales, 
-    LAG(Total_Sales, 1) OVER(PARTITION BY City ORDER BY Sales_Year, Sales_Month) AS Previous_Sales 
-FROM 
-	monthly_sales)
-SELECT City, 
-	Sales_Month, Sales_Year, 
+			INNER JOIN customers c ON s.customer_id = c.customer_id
+			INNER JOIN city ct ON c.city_id = ct.city_id
+    GROUP BY ct.city_name, Sales_Month, Sales_Year
+),
+growth_ratio AS (
+	SELECT 
+		City, Sales_Month, Sales_Year, 
+		Total_Sales AS Current_Sales, 
+		LAG(Total_Sales, 1) OVER(PARTITION BY City ORDER BY Sales_Year, Sales_Month) AS Previous_Sales 
+	FROM monthly_sales
+)
+SELECT City, Sales_Month, Sales_Year, 
 	Current_Sales, Previous_Sales, 
-	ROUND(((Current_Sales-Previous_Sales)/Previous_Sales)*100, 2) as Growth_Rate
-FROM 
-	growth_ratio
-WHERE 
-	Previous_Sales IS NOT NULL;
+	ROUND(((Current_Sales - Previous_Sales)/Previous_Sales)*100, 2) AS Growth_Rate
+FROM growth_ratio
+WHERE Previous_Sales IS NOT NULL;
 ```
-10. **Market Potential Analysis**  
-    Identify top 3 city based on highest sales, return city name, total sale, total rent, total customers, estimated  coffee consumer
+
+### 🔟 **Market Potential Analysis**  
+**Problem:** Identify the top 3 cities based on sales, rent, customers, and estimated coffee consumers.  
 
 ```sql
 WITH city_table AS (
 	SELECT ct.city_name AS City, 
-	round(sum(s.total), 2) AS Total_Revenue, 
-	count(DISTINCT c.customer_id) AS Total_Customers,
-	round(sum(s.total)/ count(DISTINCT c.customer_id), 2) AS Average_Sales_Per_Customers
+	ROUND(SUM(s.total), 2) AS Total_Revenue, 
+	COUNT(DISTINCT c.customer_id) AS Total_Customers
 	FROM sales s
-			INNER JOIN
-		customers c ON s.customer_id = c.customer_id
-			INNER JOIN
-		city ct ON c.city_id = ct.city_id
+			INNER JOIN customers c ON s.customer_id = c.customer_id
+			INNER JOIN city ct ON c.city_id = ct.city_id
 	GROUP BY ct.city_name
-	ORDER BY Average_Sales_Per_Customers DESC
 ),
-city_rent
-AS 
-(
+city_rent AS (
 	SELECT 
 		city_name,
 		estimated_rent, 
-        round(population/1000000 *0.25, 2) AS Estimated_Coffee_Consumers_In_Millinons
-	FROM 
-		city
+        ROUND(population / 1000000 * 0.25, 2) AS Estimated_Coffee_Consumers_In_Millions
+	FROM city
 )
-select 
+SELECT 
 	cr.city_name AS City,
-	ct.Total_Revenue AS Total_Revenue,
+	ct.Total_Revenue,
 	cr.estimated_rent AS Total_Rent,
-	ct.Total_Customers AS Total_Customers, 
-	cr.Estimated_Coffee_Consumers_In_Millinons AS Estimated_Coffee_Consumers_In_Millinons,
-	ct.Average_Sales_Per_Customers AS Average_Sales_Per_Customers,
-	round(estimated_rent/ct.Total_Customers, 2) AS Average_Rent_Per_Customers
-FROM
-	city_table ct
-INNER JOIN 
-	city_rent cr
-ON
-	cr.city_name = ct.City
+	ct.Total_Customers,
+	cr.Estimated_Coffee_Consumers_In_Millions
+FROM city_table ct
+INNER JOIN city_rent cr ON cr.city_name = ct.City
 ORDER BY Total_Revenue DESC;
 ```
+---
 
-## Results & Insights
-After analyzing the data, the recommended top three cities for new store openings are:
+## 🏆 **Results & Insights**  
 
-**City 1: Pune**  
-- Average rent per customer is very low.  
-- Highest total revenue.  
-- Average sales per customer is also high.
+### **Top 3 Recommended Cities for New Coffee Shops:**  
 
-**City 2: Delhi**  
-- Highest estimated coffee consumers at 7.7 million.  
-- Highest total number of customers, which is 68.  
-- Average rent per customer is 330 (still under 500).
+### 1️⃣ **Pune**  
+✅ **Highest total revenue**
+✅ **Low average rent per customer**  
+✅ **High average sales per customer**  
 
-**City 3: Jaipur**  
-- Highest number of customers, which is 69.
-- Average rent per customer is very low at 156.  
-- Average sales per customer is better at 11.6k.
+### 2️⃣ **Delhi**  
+✅ **Largest estimated coffee-consuming population (7.7M)**  
+✅ **Highest total number of customers (68)**  
+✅ **Moderate rent per customer (₹330)**  
 
-## Future Enhancements
-- Additional data sources to enhance analysis depth.
-- Automation of the data pipeline for real-time data ingestion and analysis.
-  
+### 3️⃣ **Jaipur**  
+✅ **High number of customers (69)**  
+✅ **Very low average rent per customer (₹156)**  
+✅ **Better average sales per customer (₹11.6K)**  
+
+
+## 📊 Recommendations
+
+
+---
+## 🚀 Future Enhancements  
+✅ Integrate additional data sources for deeper insights.  
+✅ Automate data pipeline for real-time data analysis.  
