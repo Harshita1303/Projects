@@ -1,31 +1,139 @@
-#                                   Monday Coffee Expansion Analysis
+#Monday Coffee Expansion Analysis
 ![front](https://github.com/user-attachments/assets/0d821e55-5296-4619-8fc1-d4b3954045df)
-![Screenshot 2025-01-31 031451](https://github.com/user-attachments/assets/d7d7acf1-ab72-4804-b77e-55a72db644a7)
-
+![dashboard](https://github.com/user-attachments/assets/09ee9883-7f12-42ad-b45a-f3ebbf9238e4)
 
 ## Project Description
 The goal of this project is to analyze the sales data of Monday Coffee, a company that has been selling its products online since January 2023, and to recommend the top three major cities in India for opening new coffee shop locations based on consumer demand and sales performance.
 
-## Dataset
-The data for this project is sourced from the Kaggle dataset:
-- **Dataset Link:** [Monday Coffee Dataset](https://www.kaggle.com/datasets/najir0123/monday-coffee-sql-data-analysis-project/)
+---
+## 📁 Project Structure
+```
+.
+├── data/                  # Raw and cleaned datasets
+├── notebooks/             # Jupyter Notebooks for data preprocessing
+├── sql_queries/           # MySQL scripts for table creation & analysis
+├── powerbi_reports/       # Power BI dashboard (.pbix files)
+├── README.md              # Project documentation
+```
+---
+## 🔧 Setup Instructions
 
-## Schema
-![image](https://github.com/user-attachments/assets/8fb7752e-e087-4461-a3e1-7689d97b1a7e)
+### **1. Environment & Data Setup**
+#### **Create a Virtual Environment**
+```bash
+python -m venv env
+env\Scripts\activate     # On Windows
+```
 
-## Approach
-- Analyze the structure and relationships of the database.
-- Gather relevant datasets to populate the database, using trusted sources such as Kaggle for diverse and high-quality datasets.
-- Import bulk data into the database using CSV files to expedite data entry and ensure efficiency. 
-- Create advanced SQL queries to extract, analyze, and manipulate data effectively.
-- Utilize techniques such as joins, aggregates, window functions and common table expressions(CTE), etc.
-### 5. Insights & Results
-- Implement various strategies to analyze the data and derive actionable insights.
+#### **Install Required Libraries**
+```bash
+pip install pandas pymysql sqlalchemy
+```
 
-## Techstack Used 
-- **SQL(Structured Query Language):** Used to query and analyze the data effectively.
-- **MySQL Workbench:** Used to run SQL queries and perform data operations. 
+### **2. Download Dataset using Kaggle API**
+1. Set up Kaggle API by placing `kaggle.json` in the `.kaggle/` directory.
+2. Download the [Monday Coffee Dataset](https://www.kaggle.com/datasets/najir0123/monday-coffee-sql-data-analysis-project/) dataset using the following command:
+```bash
+kaggle datasets download -d najir0123/monday-coffee-sql-data-analysis-project
+```
+3. Extract and place the dataset inside the **data/** folder.
 
+### **3. Data Preprocessing & MySQL Integration**
+#### **Clean the Data using Pandas**
+```python
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv("sales.csv")
+
+# Handle missing values and duplicates
+df.drop_duplicates(inplace=True)
+```
+
+#### **Store Cleaned Data in MySQL**
+```python
+from sqlalchemy import create_engine
+
+engine = create_engine('mysql+pymysql://root:password@localhost/mondaycoffee')
+df.to_sql('sales', con=engine, if_exists='replace', index=False)
+```
+
+---
+## 📊 Power BI Dashboard Setup
+### **1. Connect Power BI with MySQL**
+- Use **"Get Data" → "MySQL Database"**.
+- Enter **database credentials**.
+- Import cleaned data for visualization.
+
+### **2. Create DAX Measures**
+```DAX
+Total Revenue = SUM(Sales[Revenue])
+Total Customers = DISTINCTCOUNT(Sales[Customer_ID])
+Average Sales Per Customer = DIVIDE([Total Revenue], [Total Customers])
+Total Coffee Consumers = SUM(Sales[Customers])
+```
+
+### **3. Dashboard Visuals**
+| Visualization | Data Used | Purpose |
+|--------------|----------|---------|
+| 📈 **Revenue (Line Chart)** | City vs. Total Revenue | Shows revenue trends across cities |
+| 📊 **Sales vs Rent (Bar & Line Chart)** | Avg Rent & Avg Sales | Compare cost-effectiveness across cities |
+| 📊 **Coffee Consumers (Bar Chart)** | City vs Total Consumers | Identifies top cities for coffee consumption |
+| 📊 **Top 5 Cities by Customers (Bar Chart)** | City vs Total Customers | Highlights key customer locations |
+| 🍎 **Top 5 Products (Pie Chart)** | Product vs Sales % | Displays best-selling products |
+
+### **4. Filters & Interactivity**
+- **Date Filter:** Analyze sales by custom time ranges.
+- **Product Filter:** Filter sales by different coffee products.
+- **City Filter:** Focus on specific cities for localized insights.
+
+---
+## 📄 Documentation & Publishing
+- Store all **SQL queries & scripts** in an organized folder.
+- Maintain a well-documented **README** for clear workflow understanding.
+- Export and share the **Power BI dashboard (.pbix)** for collaboration.
+
+---
+## 🚀 Future Enhancements
+- **Customer Segmentation Analysis** based on purchase behavior.
+- **Predictive Analytics** for future sales trends.
+- **Automated Data Refresh** in Power BI.
+
+---
+### 💪 Contributing
+Feel free to **fork** this repository, **raise issues**, or **submit pull requests** to improve the project!
+
+---
+## 🎉 Thank You!
+👉 If you find this project useful, please **⭐ star this repository**!
+
+
+  
+Here’s a well-structured **Requirements** section for your GitHub README:  
+
+## 🔧 Requirements  
+
+To successfully run this project, ensure you have the following installed:  
+
+### 🐍 **Programming & Development Tools**  
+- **Python** (with the following libraries installed)  
+  - `pandas` → For data manipulation  
+  - `pymysql` → For MySQL database connection  
+  - `sqlalchemy` → For managing database interactions  
+- **VS Code** → For writing and running Python scripts  
+
+### 🗄️ **Database & SQL Tools**  
+- **MySQL** → For storing and querying sales data  
+- **MySQL Workbench** → GUI tool to run SQL queries and manage the database  
+
+### 📊 **Data Analytics & Visualization**  
+- **Power BI** → For creating interactive dashboards and visualizations  
+
+### 📦 **Data Access & API**  
+- **Kaggle API** → To fetch the dataset directly from Kaggle  
+  - Requires setting up a Kaggle API key  
+
+This setup ensures a smooth workflow from data extraction to visualization! 🚀 Let me know if you need any refinements.
 ## Business Problems and Solutions
 
 1. **Coffee Consumers Count**  
@@ -282,4 +390,6 @@ After analyzing the data, the recommended top three cities for new store opening
 - Average sales per customer is better at 11.6k.
 
 ## Future Enhancements
-- Integration with a dashboard tool (e.g., Power BI or Tableau) for interactive visualization.
+- Additional data sources to enhance analysis depth.
+- Automation of the data pipeline for real-time data ingestion and analysis.
+  
