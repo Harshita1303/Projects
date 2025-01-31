@@ -130,202 +130,33 @@ Month Prefix = FORMAT('Calendar'[Date], "mmm")
 ### 1️⃣ Coffee Consumers Count
 **Problem:** Estimate how many people in each city consume coffee (assuming 25% of the population).  
 
-```sql
-SELECT 
-    city_name AS City,
-    population * 0.25 AS Coffee_Consumers
-FROM
-    city
-ORDER BY Coffee_Consumers DESC;
-```
-
 ### 2️⃣ Total Revenue from Coffee Sales  
-**Problem:** Calculate total revenue from coffee sales across all cities in Q4 of 2023.  
-
-```sql
-SELECT 
-    ct.city_name AS City,
-    SUM(s.total) AS Total_Revenue
-FROM
-    sales s
-        INNER JOIN customers c ON s.customer_id = c.customer_id
-        INNER JOIN city ct ON c.city_id = ct.city_id
-WHERE
-    s.sale_date BETWEEN '2023-09-01' AND '2023-12-31'
-GROUP BY ct.city_name
-ORDER BY Total_Revenue DESC;
-```
+**Problem:** Calculate total revenue from coffee sales across all cities in Q4 of 2023.
 
 ### 3️⃣ Sales Count for Each Product  
-**Problem:** Determine the number of units sold for each coffee product.  
-
-```sql
-SELECT 
-    p.product_name AS Product_Name,
-    COUNT(s.product_id) AS Unit_Sales
-FROM
-    sales s
-        LEFT JOIN products p ON s.product_id = p.product_id
-GROUP BY p.product_name
-ORDER BY Unit_Sales DESC;
-```
+**Problem:** Determine the number of units sold for each coffee product. 
 
 ### 4️⃣ Average Sales Amount per City  
 **Problem:** Find the average sales amount per customer in each city.  
 
-```sql
-SELECT 
-    ct.city_name AS City, 
-    ROUND(SUM(s.total), 2) AS Total_Revenue,
-    COUNT(DISTINCT c.customer_id) AS Customers_Count,
-    ROUND(SUM(s.total)/ COUNT(DISTINCT c.customer_id), 2) AS Average_Sales_Per_Customers
-FROM 
-    sales s
-        INNER JOIN customers c ON s.customer_id = c.customer_id
-        INNER JOIN city ct ON c.city_id = ct.city_id
-GROUP BY ct.city_name   
-ORDER BY Average_Sales_Per_Customers DESC;
-```
-
 ### 5️⃣ City Population and Coffee Consumers  
-**Problem:** Provide city-wise population and estimated coffee consumers.  
-
-```sql
-SELECT 
-    ct.city_name AS City,
-    COUNT(DISTINCT c.customer_id) AS Coffee_Consumers,
-    ROUND(AVG(ct.population * 0.25) / 1000000, 2) AS Population_In_Millions
-FROM
-    sales s
-        INNER JOIN customers c ON s.customer_id = c.customer_id
-        INNER JOIN city ct ON c.city_id = ct.city_id
-GROUP BY ct.city_name
-ORDER BY Coffee_Consumers DESC;
-```
+**Problem:** Provide city-wise population and estimated coffee consumers. 
 
 ### 6️⃣ Top Selling Products by City
 **Problem:** Identify the top 3 best-selling products in each city.  
 
-```sql
-WITH temp AS (
-SELECT 
-    ct.city_name AS City,
-    p.product_name AS Product,
-    COUNT(s.product_id) AS Sales_Volume,
-    DENSE_RANK() OVER(PARTITION BY ct.city_name ORDER BY COUNT(s.product_id) DESC) AS Ranks
-FROM
-    sales s
-        INNER JOIN customers c ON s.customer_id = c.customer_id
-        INNER JOIN city ct ON c.city_id = ct.city_id
-        INNER JOIN products p ON s.product_id = p.product_id
-GROUP BY ct.city_name, p.product_name
-ORDER BY ct.city_name, Sales_Volume DESC
-)
-SELECT * FROM temp 
-WHERE temp.Ranks IN (1,2,3);
-```
-
 ### 7️⃣ Customer Segmentation by City  
 **Problem:** Find the number of unique customers in each city.  
 
-```sql
-SELECT 
-    ct.city_name AS City,
-    COUNT(DISTINCT s.customer_id) AS Customers_Count
-FROM
-    sales s
-        LEFT JOIN customers c ON s.customer_id = c.customer_id
-        INNER JOIN city ct ON c.city_id = ct.city_id
-GROUP BY ct.city_name
-ORDER BY Customers_Count DESC;
-```
-
 ### 8️⃣ Average Sale vs Rent  
-**Problem:** Compare the average sales per customer with average rent per customer.  
-
-```sql
-WITH city_table AS (
-	SELECT ct.city_name AS City, 
-	ROUND(SUM(s.total), 2) AS Total_Revenue, 
-	COUNT(DISTINCT c.customer_id) AS Customers_Count,
-	ROUND(SUM(s.total)/ COUNT(DISTINCT c.customer_id), 2) AS Average_Sales_Per_Customers
-	FROM sales s
-			INNER JOIN customers c ON s.customer_id = c.customer_id
-			INNER JOIN city ct ON c.city_id = ct.city_id
-	GROUP BY ct.city_name
-),
-city_rent AS (
-	SELECT city_name, estimated_rent FROM city
-)
-SELECT 
-	cr.city_name,
-	ct.Average_Sales_Per_Customers,
-	ROUND(estimated_rent/ct.Customers_Count, 2) AS Average_Rent_Per_Customers
-FROM 
-	city_table ct 
-	INNER JOIN city_rent cr ON cr.city_name = ct.City;
-```
+**Problem:** Compare the average sales per customer with average rent per customer. 
 
 ### 9️⃣ Monthly Sales Growth  
 **Problem:** Calculate percentage growth (or decline) in sales over different months.  
 
-```sql
-WITH Monthly_Sales AS (
-	SELECT 
-		ct.city_name AS City,
-		EXTRACT(MONTH FROM s.sale_date) AS Sales_Month,
-		EXTRACT(YEAR FROM s.sale_date) AS Sales_Year, 
-		SUM(s.total) AS Total_Sales
-	FROM
-		sales s
-			INNER JOIN customers c ON s.customer_id = c.customer_id
-			INNER JOIN city ct ON c.city_id = ct.city_id
-    GROUP BY ct.city_name, Sales_Month, Sales_Year
-),
-growth_ratio AS (
-	SELECT 
-		City, Sales_Month, Sales_Year, 
-		Total_Sales AS Current_Sales, 
-		LAG(Total_Sales, 1) OVER(PARTITION BY City ORDER BY Sales_Year, Sales_Month) AS Previous_Sales 
-	FROM monthly_sales
-)
-SELECT City, Sales_Month, Sales_Year, 
-	Current_Sales, Previous_Sales, 
-	ROUND(((Current_Sales - Previous_Sales)/Previous_Sales)*100, 2) AS Growth_Rate
-FROM growth_ratio
-WHERE Previous_Sales IS NOT NULL;
-```
-
 ### 🔟 Market Potential Analysis  
 **Problem:** Identify the top 3 cities based on sales, rent, customers, and estimated coffee consumers.  
 
-```sql
-WITH city_table AS (
-	SELECT ct.city_name AS City, 
-	ROUND(SUM(s.total), 2) AS Total_Revenue, 
-	COUNT(DISTINCT c.customer_id) AS Total_Customers
-	FROM sales s
-			INNER JOIN customers c ON s.customer_id = c.customer_id
-			INNER JOIN city ct ON c.city_id = ct.city_id
-	GROUP BY ct.city_name
-),
-city_rent AS (
-	SELECT 
-		city_name,
-		estimated_rent, 
-        ROUND(population / 1000000 * 0.25, 2) AS Estimated_Coffee_Consumers_In_Millions
-	FROM city
-)
-SELECT 
-	cr.city_name AS City,
-	ct.Total_Revenue,
-	cr.estimated_rent AS Total_Rent,
-	ct.Total_Customers,
-	cr.Estimated_Coffee_Consumers_In_Millions
-FROM city_table ct
-INNER JOIN city_rent cr ON cr.city_name = ct.City
-ORDER BY Total_Revenue DESC;
-```
 ---
 
 ## 🏆 Results & Insights  
