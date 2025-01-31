@@ -332,9 +332,9 @@ ORDER BY Total_Revenue DESC;
 ### Top 3 Recommended Cities for New Coffee Shops:
 
 ### 1️⃣ Pune
-✅ Highest total revenue
-✅ Low average rent per customer  
-✅ High average sales per customer  
+- ✅ Highest total revenue
+- ✅ Low average rent per customer  
+- ✅ High average sales per customer  
 
 ### 2️⃣ Delhi  
 ✅ Largest estimated coffee-consuming population (7.7M)
