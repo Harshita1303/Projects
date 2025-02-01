@@ -164,18 +164,18 @@ Month Prefix = FORMAT('Calendar'[Date], "mmm")
 
 ### 1️⃣ Pune
 ✅ Highest total revenue (1.26M)  
-✅ Low average rent per customer (₹294) 
-✅ High average sales per customer (₹24.2k) 
+✅ Low average rent per customer (₹294)  
+✅ High average sales per customer (₹24.2k)   
 
 ### 2️⃣ Delhi  
 ✅ Largest estimated coffee-consuming population (7.7M)  
 ✅ Highest total number of customers (68) 
-✅ Moderate rent per customer (₹330)
+✅ Moderate rent per customer (₹330)  
 
 ### 3️⃣ Jaipur
 ✅ High number of customers (69)
 ✅ Very low average rent per customer (₹156)
-✅ Better average sales per customer (₹11.6K) 
+✅ Better average sales per customer (₹11.6K)  
 
 ### 4️⃣ Chennai
 ❌ Lowest estimated coffee consumers (2.78M)
@@ -186,8 +186,6 @@ Month Prefix = FORMAT('Calendar'[Date], "mmm")
 ❌ Low estimated coffee consumers (3.08M)
 ❌ Highest average rent per customer (₹762)
 ❌ Very low number of customers (39) 
-
-## 📊 Recommendations
 
 ---
 ## 🚀 Future Enhancements  
