@@ -7,7 +7,6 @@ The objective of this project is to analyze Instagram user interactions using SQ
 In this project, I leveraged MySQL to extract and analyze data from the provided database. 
 
 ## Tech Stack Used
-- SQL
 - MySQL Workbench
 
 ## Marketing Analysis
