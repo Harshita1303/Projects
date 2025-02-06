@@ -4,13 +4,15 @@
 ## Objective 
 The objective of this project is to analyze Instagram user interactions using SQL and MySQL Workbench to extract meaningful insights. These insights will support informed decisions by the product, marketing, and development teams, guiding the future direction of the app and enhancing user experience.
 ## Approach
+For this project, I have used MySQL to extract the required data from the given database using join function, subqueries, and Aggregation.
+Keeping the primrary key and foreign key in consideration provided all the reports asked by marketing department. 
+EDA
 
 ## Tech Stack Used
 Sql
 MySql Workbench
 
-## Business Problems and Solution
-
+## Marketing Analysis
 ###  1.Loyal User Reward
 **Task:** Identify the five oldest users on Instagram from the provided database.
 ```sql
@@ -93,4 +95,4 @@ GROUP BY days
 ORDER BY days_count DESC;
 ```
 
-## Sales Insight
+## Sales & Insight
