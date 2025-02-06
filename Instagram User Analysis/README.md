@@ -4,14 +4,12 @@
 ## Objective 
 The objective of this project is to analyze Instagram user interactions using SQL and MySQL Workbench to extract meaningful insights. These insights will support informed decisions by the product, marketing, and development teams, guiding the future direction of the app and enhancing user experience.
 ## Approach
-For this project, I have used MySQL to extract the required data from the given database using join function, subqueries, and Aggregation.
-Keeping the primrary key and foreign key in consideration provided all the reports asked by marketing department. 
-EDA
+In this project, I leveraged MySQL to extract and analyze data from the provided database. 
 
 ## Tech Stack Used
-**SQL:** Utilized for querying and manipulating data through joins, subqueries, and aggregations to extract insights.
-**MySQL:** A relational database management system used to organize and manage data efficiently.
-**MySQL Workbench:** An IDE used for writing SQL queries, optimizing performance, and visualizing data. This combination ensured smooth data extraction and insightful analysis.
+- **SQL:** Utilized for querying and manipulating data through joins, subqueries, and aggregations to extract insights.
+- **MySQL:** A relational database management system used to organize and manage data efficiently.
+- **MySQL Workbench:** An IDE used for writing SQL queries, optimizing performance, and visualizing data. This combination ensured smooth data extraction and insightful analysis.
 
 ## Marketing Analysis
 ###  1.Loyal User Reward
