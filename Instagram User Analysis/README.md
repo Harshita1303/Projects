@@ -94,3 +94,8 @@ ORDER BY days_count DESC;
 ```
 
 ## Sales & Insight
+- Targeting long-term users for loyalty programs enhances retention and engagement.
+- Re-engagement campaigns for users who haven’t posted can boost activity and platform interaction.
+- Recognizing highly engaged users motivates participation and generates more user content.
+- Identifying trending hashtags informs content strategy, driving greater engagement with popular topics.
+- Analyzing peak user registration days helps optimize ad campaign timing for maximum reach and effectiveness.
