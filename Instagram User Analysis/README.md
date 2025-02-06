@@ -9,8 +9,9 @@ Keeping the primrary key and foreign key in consideration provided all the repor
 EDA
 
 ## Tech Stack Used
-Sql
-MySql Workbench
+**SQL:** Utilized for querying and manipulating data through joins, subqueries, and aggregations to extract insights.
+**MySQL:** A relational database management system used to organize and manage data efficiently.
+**MySQL Workbench:** An IDE used for writing SQL queries, optimizing performance, and visualizing data. This combination ensured smooth data extraction and insightful analysis.
 
 ## Marketing Analysis
 ###  1.Loyal User Reward
