@@ -15,10 +15,17 @@ This project aims to **identify key factors that influence a movie's success** o
 - **Power BI:** Advanced analysis, DAX calculations, and interactive dashboard creation.
 
 ## 📊 Business Problems Addressed
-✔ Movie Genre Analysis – Examining genre distribution and its impact on IMDB scores.
-✔ Movie Duration Analysis – Evaluating how movie length influences ratings.
-✔ Language Analysis – Analyzing the distribution of movies by language.
-✔ Director Influence – Understanding the role of directors in movie ratings.
-✔ Budget vs. Success – Exploring the relationship between budgets and financial performance.
+- Movie Genre Analysis – Examining genre distribution and its impact on IMDB scores.
+- Movie Duration Analysis – Evaluating how movie length influences ratings.
+- Language Analysis – Analyzing the distribution of movies by language.
+- Director Influence – Understanding the role of directors in movie ratings.
+- Budget vs. Success – Exploring the relationship between budgets and financial performance.
 
-## Results & Insights 
+## Results & Insights
+- Propular Genre: Drama, comedy and triller are the most popular genre.
+- Market Trends: Viewers preference to watch 100 to 200 mins of duration
+- Higher IMDB Score: Customers interactivity
+- Quality of Movie is more important
+- Higher Budget have higher gross earnings.
+
+## Recommendation 
