@@ -6,16 +6,16 @@ This project aims to **identify key factors that influence a movie's success** o
 
 ## 🛠️ Approach
 
-### **Data Collection & Preprocessing:**  
+#### **Data Collection & Preprocessing:**  
  - Imported, cleaned, and transformed the dataset using Excel.  
-### **Data Analysis:**  
+#### **Data Analysis:**  
  - Conducted statistical analysis and summarized data using Pivot Tables in Excel.  
  - Performed deeper insights and advanced visualizations using Power BI.  
-### **Data Visualization:**  
+#### **Data Visualization:**  
  - Used Power BI’s robust charting and visualization tools to identify key trends influencing movie ratings.  
-### **Reporting:**  
+#### **Reporting:**  
  - Created interactive dashboards in Power BI to present findings and share insights with stakeholders.
-### **Documentation:**
+#### **Documentation:**
  - Documented the product for better understanding.
 
 ## 🔧 Tech Stack Used  
