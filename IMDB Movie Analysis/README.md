@@ -18,7 +18,7 @@ This project aims to **identify key factors that influence a movie's success** o
  - Created interactive dashboards in Power BI to present findings and share insights with stakeholders.
  - Performed drill-through analysis to explore directors-specific insights.
 #### **Documentation:**
- - •	Documented all the processes, insights, and recommendations for better understanding.
+ - Documented all the processes, insights, and recommendations for better understanding.
 
 ## 🔧 Tech Stack Used  
 - **Excel:** Data cleaning, Pivot Tables, and basic statistical analysis.  
