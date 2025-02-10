@@ -7,7 +7,8 @@ This project aims to **identify key factors that influence a movie's success** o
 ## 🛠️ Approach
 
 #### **Data Collection & Preprocessing:**  
- - Imported, cleaned, and transformed the dataset using Excel.  
+ - Imported, cleaned, and transformed the dataset using Excel.
+ - Performed data transformation to ensure consistency and usability.
 #### **Data Analysis:**  
  - Conducted statistical analysis and summarized data using Pivot Tables in Excel.  
  - Performed deeper insights and advanced visualizations using Power BI.  
@@ -15,12 +16,14 @@ This project aims to **identify key factors that influence a movie's success** o
  - Used Power BI’s robust charting and visualization tools to identify key trends influencing movie ratings.  
 #### **Reporting:**  
  - Created interactive dashboards in Power BI to present findings and share insights with stakeholders.
+ - Performed drill-through analysis to explore directors-specific insights.
 #### **Documentation:**
- - Documented the product for better understanding.
+ - •	Documented all the processes, insights, and recommendations for better understanding.
 
 ## 🔧 Tech Stack Used  
 - **Excel:** Data cleaning, Pivot Tables, and basic statistical analysis.  
-- **Power BI:** Advanced analytics, DAX calculations, and interactive dashboard creation.  
+- **Power BI:** Advanced analytics, DAX calculations, and interactive dashboard creation.
+- **MS Word:** Documenting the project and insights.
 
 ## 📊 Business Problems Addressed
 - **Movie Genre Analysis:** Examined genre distribution and its impact on IMDB scores.  
@@ -31,14 +34,16 @@ This project aims to **identify key factors that influence a movie's success** o
 
 ## 📈 Key Insights & Findings  
 - **Popular Genres:** Drama, Comedy, and Thriller are the most preferred genres.  
-- **Market Trends:** Viewers prefer movies with a duration between **100 to 200 minutes**.  
+- **Market Trends:** Viewers prefer movies with a duration between 100 to 200 minutes.  
 - **Higher IMDB Scores:** Strong audience engagement and interactivity contribute to better ratings.  
 - **Quality Matters:** The quality of a movie is more significant than just its budget.  
-- **Budget & Earnings:** Higher-budget movies tend to generate **higher gross earnings**.  
+- **Budget & Earnings:** Higher-budget movies tend to generate higher gross earnings.  
 
 ## 🎯 Recommendations 
 - Focus on producing **Drama, Comedy, and Thriller** films.  
 - Optimize movie durations between **100–200 minutes** to align with viewer preferences.    
-- Allocate budgets effectively, ensuring a balance between quality and financial returns.  
+- Allocate budgets effectively, ensuring a balance between quality and financial returns.
 
+## Future Enhancements
+- Advanced Analytics: Machine learning predictions for box office performance.
 
