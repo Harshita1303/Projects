@@ -5,14 +5,10 @@ This project aims to **identify key factors that influence a movie's success** o
 
 ## 🛠️ Approach
 
-**Data Collection & Preprocessing:**  
-- Imported, cleaned, and transformed the dataset using Excel. Performed data transformation to ensure consistency and usability.  
-
-**Data Analysis:**  Conducted statistical analysis and summarized data using Pivot Tables in Excel.  
-
-**Data Visualization:**  Used Excel’s charting tools to identify key trends influencing movie ratings.  
-
-**Documentation:** Documented all the processes, insights, and recommendations for better understanding.  
+- **Data Collection & Preprocessing:**  Imported, cleaned, and transformed the dataset using Excel. Performed data transformation to ensure consistency and usability.  
+- **Data Analysis:**  Conducted statistical analysis and summarized data using Pivot Tables in Excel.  
+- **Data Visualization:**  Used Excel’s charting tools to identify key trends influencing movie ratings.  
+- **Documentation:** Documented all the processes, insights, and recommendations for better understanding.  
 
 ## 🔧 Tech Stack Used
 - **Excel**: Data cleaning, Pivot Tables, and basic statistical analysis.  
