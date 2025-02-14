@@ -33,14 +33,14 @@ This project aims to **identify key factors that influence a movie's success** o
 - **Budget vs. Success:** Explored the relationship between budgets and financial performance.  
 
 ## 📈 Key Insights & Findings  
-- **Popular Genres:** Drama, Comedy, and Thriller are the most preferred genres.  
+- **Genres:** Biography, Drama, and Animation are the most preferred genres.  
 - **Market Trends:** Viewers prefer movies with a duration between 100 to 200 minutes.  
 - **Higher IMDB Scores:** Strong audience engagement and interactivity contribute to better ratings.  
 - **Quality Matters:** The quality of a movie is more significant than just its budget.  
 - **Budget & Earnings:** Higher-budget movies tend to generate higher gross earnings.  
 
 ## 🎯 Recommendations 
-- Focus on producing **Drama, Comedy, and Thriller** films.  
+- Focus on producing **Biography, Drama, and Animation** films.  
 - Optimize movie durations between **100–200 minutes** to align with viewer preferences.    
 - Allocate budgets effectively, ensuring a balance between quality and financial returns.
 
