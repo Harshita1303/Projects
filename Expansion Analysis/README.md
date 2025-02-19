@@ -63,51 +63,7 @@ df.to_sql('sales', con=engine_mysql, if_exists='replace', index=False)
 ```
 
 ---
-## 📊 Power BI Dashboard Setup
-### 1. Connect Power BI with MySQL
-- Use **"Get Data" → "MySQL Database"**.
-- Enter **database credentials**.
-- Import cleaned data for visualization.
 
-### 2. Create DAX: Calculated Columns and Measures
-#### Measures:
-```DAX
-Total Revenue = SUM(sales[total])
-Unit Sales = COUNT(Sales[product_id])
-Total Rent = sum(city[estimated_rent])
-Coffee Consumers = SUM(city[population]) * 0.25
-Total Customers = DISTINCTCOUNT(sales[customer_id])
-Average Sales Per Customers = DIVIDE([Total Revenue], [Total Customers])
-Average Rent per Customers = DIVIDE(SUM(City[estimated_rent]), [Total Customers])
-```
-#### Calculated Columns:
-```DAX
-Year = YEAR('Calendar'[Date])
-Month Number = MONTH('Calendar'[Date])
-Month Prefix = FORMAT('Calendar'[Date], "mmm")
-```
-
-### 3. Dashboard Visuals
-| Visualization | Data Used | Purpose |
-|--------------|----------|---------|
-| 📈 **Revenue (Line Chart)** | City vs. Total Revenue | Shows revenue trends across cities |
-| 📊 **Sales vs Rent (Bar & Line Chart)** | Avg Rent & Avg Sales | Compare cost-effectiveness across cities |
-| 📊 **Coffee Consumers (Bar Chart)** | City vs Total Consumers | Identifies top cities for coffee consumption |
-| 📊 **Top 5 Cities by Customers (Bar Chart)** | City vs Total Customers | Highlights key customer locations |
-| 🍎 **Top 5 Products (Pie Chart)** | Product vs Sales % | Displays best-selling products |
-
-### 4. Filters & Interactivity
-- **Date Filter:** Analyze sales by custom time ranges.
-- **Product Filter:** Filter sales by different coffee products.
-- **City Filter:** Focus on specific cities for localized insights.
-
----
-## 📄 Documentation & Publishing
-- Store all **SQL queries & scripts** in an organized folder.
-- Maintain a well-documented **README** for clear workflow understanding.
-- Export and share the **Power BI dashboard (.pbix)** for collaboration.
-
----
 ## 🛠 Tech Stack & Tools Used
 
 ### 📌 Languages & Libraries
@@ -156,6 +112,51 @@ Month Prefix = FORMAT('Calendar'[Date], "mmm")
 
 ### 🔟 Market Potential Analysis  
 **Problem:** Identify the top 3 cities based on sales, rent, customers, and estimated coffee consumers.  
+
+---
+## 📊 Power BI Dashboard Setup
+### 1. Connect Power BI with MySQL
+- Use **"Get Data" → "MySQL Database"**.
+- Enter **database credentials**.
+- Import cleaned data for visualization.
+
+### 2. Create DAX: Calculated Columns and Measures
+#### Measures:
+```DAX
+Total Revenue = SUM(sales[total])
+Unit Sales = COUNT(Sales[product_id])
+Total Rent = sum(city[estimated_rent])
+Coffee Consumers = SUM(city[population]) * 0.25
+Total Customers = DISTINCTCOUNT(sales[customer_id])
+Average Sales Per Customers = DIVIDE([Total Revenue], [Total Customers])
+Average Rent per Customers = DIVIDE(SUM(City[estimated_rent]), [Total Customers])
+```
+#### Calculated Columns:
+```DAX
+Year = YEAR('Calendar'[Date])
+Month Number = MONTH('Calendar'[Date])
+Month Prefix = FORMAT('Calendar'[Date], "mmm")
+```
+
+### 3. Dashboard Visuals
+| Visualization | Data Used | Purpose |
+|--------------|----------|---------|
+| 📈 **Revenue (Line Chart)** | City vs. Total Revenue | Shows revenue trends across cities |
+| 📊 **Sales vs Rent (Bar & Line Chart)** | Avg Rent & Avg Sales | Compare cost-effectiveness across cities |
+| 📊 **Coffee Consumers (Bar Chart)** | City vs Total Consumers | Identifies top cities for coffee consumption |
+| 📊 **Top 5 Cities by Customers (Bar Chart)** | City vs Total Customers | Highlights key customer locations |
+| 🍎 **Top 5 Products (Pie Chart)** | Product vs Sales % | Displays best-selling products |
+
+### 4. Filters & Interactivity
+- **Date Filter:** Analyze sales by custom time ranges.
+- **Product Filter:** Filter sales by different coffee products.
+- **City Filter:** Focus on specific cities for localized insights.
+
+---
+## 📄 Documentation & Publishing
+- Store all **SQL queries & scripts** in an organized folder.
+- Maintain a well-documented **README** for clear workflow understanding.
+- Export and share the **Power BI dashboard (.pbix)** for collaboration.
 
 ---
 
