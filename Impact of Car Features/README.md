@@ -5,21 +5,21 @@
 The objective of this project is to dentify which features and categories are most popular among consumers and most profitable for the manufacturer.The main aim is to help a car manufacturer optimize pricing and product development decisions to maximize the profitability while meeting customers demand. This could help the manufacturer improve its competitiveness in the market and increase its profitablitity over time.
 
 ## Approach
-Data Collection
+### Data Collection
 -	Set up Kaggle API by placing kaggle.json in the .kaggle/ directory.
 -	Downloaded the dataset using kaggle datasets download -d CooperUnion/cardataset.
-Data Cleaning & Preprocessing 
+### Data Cleaning & Preprocessing 
 -	Imported required libraries and handled missing values, duplicates, and inconsistencies.
 -	Performed data transformation and outlier detection.
 -	Standardized data formats and ensured consistency for analysis.
-Data Analysis & Visualization 
+### Data Analysis & Visualization 
 -	Conducted exploratory data analysis (EDA) using pivot tables, filters, and formulas.
 -	Created statistical summaries and performed trend analysis.
 -	Developed charts and graphs (scatter plots, histograms, regression analysis) to identify key insights.
-Dashboard & Reporting
+### Dashboard & Reporting
 -	Designed an interactive dashboard with key performance indicators (KPIs).
 -	Integrated slicers, and filters for dynamic data exploration.
-Documentation 
+### Documentation 
 -	Documented project objectives, methodology, findings, and insights.
 -	Included visual representations, observations, and recommendations.
 
