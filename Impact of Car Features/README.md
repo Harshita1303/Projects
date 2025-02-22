@@ -46,32 +46,39 @@ The objective of this project is to dentify which features and categories are mo
 5. How does the car's horsepower, MPG, and price vary across different Brands?
 
 ## Result & Insights 
-- Basic: Marti Suzuki, Hyundai and Kia focus on fuel efficiency and affordability
-- Mid-Range: Honda and Toyota focus on balanced performance and efficiency.
-- Premium: BMW and Audi focus on higher HP and premium features.
-- Sedans and SUVs dominate the mass-market sales.
-- Hatchbacks are priced lower, popular choices to budget friendly customers.
-- Engine power, brand reputation, and fuel efficiency strongly impact price.
-- Sharp increase post-2010 aligns with the rise of hybrid and electric vehicles (EVs),
-- Higher horsepower correlates with lower MPG, especially in SUVs.
-- Hybrid & Electric Models demonstrate superior city MPG while maintaining reasonable engine power.
+### Market Trends:
+- SUVs & Sedans dominate mass-market sales.
+- Hatchbacks remain popular among budget-conscious consumers.
+- The rise of hybrid & electric vehicles (EVs) post-2010 aligns with growing environmental awareness.
+### Pricing Factors:
+- Engine power, brand reputation, and fuel efficiency strongly influence pricing.
+- Luxury brands (BMW, Audi) command higher prices due to premium features.
+- Budget brands (Maruti Suzuki, Hyundai, Kia) focus on affordability and efficiency.
+### Consumer Preferences:
+- Buyers prioritize fuel efficiency, affordability, and brand reliability.
+- Hybrid & Electric models are gaining traction, especially in urban areas.
+- Higher horsepower correlates with lower fuel efficiency, especially in SUVs.
+### Industry Shift:
+- Increasing demand for automatic transmission vehicles over manual.
+- Growth in electric & hybrid models to meet sustainability goals.
 
 ## Recommendation
-### Market Strategy: Focus on High-Demand Segments
-•	Target SUVs & Sedans, as they dominate market demand.
-•	Focus on models with the highest return on investment (ROI).
-•	Offer multiple trims (basic to premium) to attract different customer segments.
-### Pricing Optimization: Competitive Positioning
-•	Benchmark pricing against Toyota, Honda, Ford, Hyundai for strategic price positioning.
-•	Implement dynamic pricing based on demand, competition, and seasonal trends.
-### Product Development: Body Style Optimization
-•	Invest in SUV & Sedan models to maximize revenue.
-•	Invest in hybrid & electric models to meet changing consumer demands.
-•	Retain hatchbacks in emerging markets due to affordability appeal.
+### Market Strategy
+- Focus on SUVs & Sedans, as they dominate demand.
+- Expand EV & hybrid offerings to match market trends.
+- Maintain hatchbacks for emerging markets.
+### Pricing Optimization
+- Benchmark against Toyota, Honda, Hyundai for competitive pricing.
+- Use dynamic pricing models based on demand & seasonal trends.
+### Product Development
+- Invest in SUV & Sedan models for high revenue potential.
+- Focus on hybrid & electric vehicles for long-term sustainability.
+- Offer multiple trim levels (basic to premium) to cater to diverse customer segments.
 ### Transmission & Fuel Efficiency Optimization
-•	Prioritize automatic transmissions for better consumer appeal.
-•	Limit manual transmissions to niche market. 
-•	Market balanced power and fuel efficiency to maximize appeal.
+- Prioritize automatic transmission models for mass appeal.
+- Market balanced power & fuel efficiency for a competitive edge.
 
 ## Future Scope
+- Implementing machine learning models to forecast car pricing trends.
+- Integrating real-time sales & demand data for dynamic decision-making.
 
